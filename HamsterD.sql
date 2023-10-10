@@ -205,6 +205,8 @@ ALTER TABLE TB_IN_COMMENT ADD CONSTRAINT TB_IN_COMMENT_COMMENT_NO_FK FOREIGN KEY
  
 -- ALTER TABLE TB_MEMBER MODIFY BIRTH DATE(date_format(BIRTH(),'YYYY-MM-DD'));
 --
+--
+--asdfasfasfewfwe
  
  select * from TB_MEMBER;
 delete from TB_MEMBER where member_no = '9';
