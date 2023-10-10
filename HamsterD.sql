@@ -84,7 +84,8 @@ CREATE TABLE TB_POST( -- 게시물 테이블 생성
     POST_CONTENT VARCHAR2(4000) NOT NULL, -- 게시물 내용
     CREATE_TIME DATE DEFAULT SYSDATE, -- 게시물 작성 날짜
     UPDATE_TIME DATE, -- 게시물 수정 날짜
-    NICKNAME VARCHAR2(40), -- 게시물 익명 닉네임
+    POST_FILE VARCHAR2(1000), --업로드 한 파일명
+    BOARD_VIEW NUMBER, -- 게시판 조회수
     MEMBER_NO NUMBER -- 멤버 테이블 FK (변수명 변경하기)
 );
 
