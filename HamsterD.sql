@@ -151,5 +151,3 @@ ALTER TABLE TB_IN_COMMENT ADD CONSTRAINT TB_IN_COMMENT_COMMENT_NO_FK FOREIGN KEY
  select * from TB_MEMBER;
 delete from TB_MEMBER where member_no = '9';
 commit;
-
-Sel
