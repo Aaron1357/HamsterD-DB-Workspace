@@ -87,7 +87,9 @@ CREATE TABLE TB_POST( -- 게시물 테이블 생성
     UPDATE_TIME DATE, -- 게시물 수정 날짜
     POST_FILE VARCHAR2(1000), --업로드 한 파일명
     BOARD_VIEW NUMBER, -- 게시판 조회수
+    SECURITYCHECK CHAR DEFAULT "N",
     MEMBER_NO NUMBER -- 멤버 테이블 FK (변수명 변경하기)
+    
 );
 
 
@@ -206,7 +208,7 @@ ALTER TABLE TB_IN_COMMENT ADD CONSTRAINT TB_IN_COMMENT_COMMENT_NO_FK FOREIGN KEY
 -- ALTER TABLE TB_MEMBER MODIFY BIRTH DATE(date_format(BIRTH(),'YYYY-MM-DD'));
 --
 --
---asdfasfasfewfwe
+
  
 select * from TB_POST;
 select * from TB_MEMBER;
