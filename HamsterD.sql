@@ -82,12 +82,11 @@ CREATE TABLE TB_SCHEDULE (  -- 스케줄 테이블 생성
 CREATE TABLE TB_POST( -- 게시물 테이블 생성
     POST_NO NUMBER, --게시물 넘버
     POST_TITLE VARCHAR2(50) NOT NULL, -- 게시물 이름
-    POST_CONTENT VARCHAR2(4000) NOT NULL, -- 게시물 내용
+    POST_CONTENT VARCHAR2(4000) NOT NULL, -- 게시물 내용 파일 포함
     CREATE_TIME DATE DEFAULT SYSDATE, -- 게시물 작성 날짜
     UPDATE_TIME DATE, -- 게시물 수정 날짜
-    POST_FILE VARCHAR2(1000), --업로드 한 파일명
-    BOARD_VIEW NUMBER, -- 게시판 조회수
-    SECURITYCHECK CHAR DEFAULT "N",
+    BOARD_VIEW NUMBER DEFAULT 0, -- 게시판 조회수
+    SECURITYCHECK CHAR(1) DEFAULT 'N',
     MEMBER_NO NUMBER -- 멤버 테이블 FK (변수명 변경하기)
     
 );
@@ -208,8 +207,8 @@ ALTER TABLE TB_IN_COMMENT ADD CONSTRAINT TB_IN_COMMENT_COMMENT_NO_FK FOREIGN KEY
 -- ALTER TABLE TB_MEMBER MODIFY BIRTH DATE(date_format(BIRTH(),'YYYY-MM-DD'));
 --
 --
+UPDATE tb_post SET board_view = board_view + 1 WHERE post_no =1;
 
- 
 select * from TB_POST;
 select * from TB_MEMBER;
 delete from TB_MEMBER where member_no = '9';
