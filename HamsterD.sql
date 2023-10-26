@@ -121,10 +121,10 @@ CREATE TABLE TB_IN_COMMENT(-- 게시물 대댓글 테이블
     MEMBER_NO NUMBER, -- 외래키, 멤버 SEQ
     COMMENT_NO NUMBER, --외래키, 댓글 SEQ
     POST_NO NUMBER, -- 외래키, 게시글 SEQ
-    CONSTRAINT TB_IN_COMMENT_FK FOREIGN KEY (COMMENT_NO) REFERENCES TB_COMMENT(COMMENT_NO) ON DELETE SET NULL
+    CONSTRAINT TB_IN_COMMENT_FK FOREIGN KEY (COMMENT_NO) REFERENCES TB_COMMENT(COMMENT_NO) ON DELETE CASCADE
     -- 대댓글 포함된 댓글 삭제 시 부모키 위배되기 때문에 지정해줘야함
     -- 대댓글은 null 표시되고 db값에는 남아있음
-    -- 대댓글도 삭제하고 싶으면 ON DELETE CASCADE로 변경해주면 됨
+    -- 대댓글도 삭제하고 싶으면  ON DELETE SET NULL로 변경해주면 됨
  );
 
  CREATE TABLE TB_COMMENT_LIKE( -- 좋아요 게시물 댓글 테이블
@@ -218,5 +218,6 @@ select * from TB_MEMBER;
 select * from TB_COMMENT;
 select * from TB_IN_COMMENT;
 
+select * from tb_post where post_content like '<p>a</p>';
 delete from TB_MEMBER where member_no = '9';
 commit;
